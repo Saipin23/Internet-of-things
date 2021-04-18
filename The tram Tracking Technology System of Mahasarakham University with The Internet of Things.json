@@ -1,0 +1,1321 @@
+[
+    {
+        "id": "6b78a80e.fade78",
+        "type": "tab",
+        "label": "ระบบติดตามรถรางสาธารณะมหาวิทยาลัยมหาสารคาม",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "40026d2d.906c64",
+        "type": "group",
+        "z": "6b78a80e.fade78",
+        "name": "Map",
+        "style": {
+            "stroke": "#ff0000",
+            "fill": "#ffefbf",
+            "label": true,
+            "label-position": "n",
+            "color": "#000000"
+        },
+        "nodes": [
+            "8625597.3ededa8",
+            "eb4278f8.277028",
+            "3f6da7ad.815088",
+            "3168b4c0.fc252c",
+            "5fc14129.6667f",
+            "622fc405.a3f5bc",
+            "1dc21bcf.f46434",
+            "944ccae9.e1b978",
+            "a91b400e.fb01c",
+            "17812856.95f738",
+            "96aca450.d679d8",
+            "f6fe1aef.b0ae98",
+            "dd809ca.0922a6",
+            "50fcca44.335ee4",
+            "3a05d360.dc67bc",
+            "daf26ae0.1207d8",
+            "9973623f.c13fa",
+            "70206221.75b8ac"
+        ],
+        "x": 34,
+        "y": 899,
+        "w": 912,
+        "h": 502
+    },
+    {
+        "id": "5d9af1d3.46f09",
+        "type": "group",
+        "z": "6b78a80e.fade78",
+        "name": "ค่าฝุ่น PM2.5 มหาวิทยาลัยมหาสารคาม",
+        "style": {
+            "stroke": "#ff0000",
+            "fill": "#ffefbf",
+            "label": true,
+            "label-position": "n",
+            "color": "#000000"
+        },
+        "nodes": [
+            "523e5bbb.476b14",
+            "7c1f73c3.27675c",
+            "b60cdb30.a5bba8",
+            "d508c43e.610b08",
+            "8cc4f5df.f4f1c8",
+            "40781834.279208",
+            "b27ff8f0.7eb718"
+        ],
+        "x": 34,
+        "y": 659,
+        "w": 912,
+        "h": 202
+    },
+    {
+        "id": "cf70a5a6.00fe58",
+        "type": "group",
+        "z": "6b78a80e.fade78",
+        "name": "สภาพอากาศอำเภอกันทรวิชัย",
+        "style": {
+            "stroke": "#ff0000",
+            "fill": "#ffefbf",
+            "label": true,
+            "label-position": "n",
+            "color": "#000000"
+        },
+        "nodes": [
+            "f032fe79.2cb8b",
+            "ffc6a653.1a1b78",
+            "7c81459a.1b764c",
+            "52ace3ee.d59aec",
+            "f1e99b61.04cb88",
+            "27a3a70a.a57888",
+            "133e02c3.f4f46d",
+            "b686901c.bff06",
+            "c43cb291.5a61b",
+            "999c7c0a.d2724",
+            "636c9376.b08fac",
+            "c0c16c74.a33b3",
+            "60299073.892f9",
+            "aa4e9615.a22658",
+            "ba3c224a.af7e9",
+            "7a0a6b11.4696c4",
+            "f027d59b.a274d8",
+            "24d9721.895168e",
+            "e6dd913d.4dc4d",
+            "94c65810.8f1278",
+            "e5f8872f.e0f5c8",
+            "a93e03d5.710e9",
+            "fabc7c16.a9cbb",
+            "23f9f4e1.d34bbc"
+        ],
+        "x": 34,
+        "y": 19,
+        "w": 912,
+        "h": 602
+    },
+    {
+        "id": "523e5bbb.476b14",
+        "type": "inject",
+        "z": "6b78a80e.fade78",
+        "g": "5d9af1d3.46f09",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 720,
+        "wires": [
+            [
+                "7c1f73c3.27675c"
+            ]
+        ]
+    },
+    {
+        "id": "7c1f73c3.27675c",
+        "type": "http request",
+        "z": "6b78a80e.fade78",
+        "g": "5d9af1d3.46f09",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://www.cmuccdc.org/download_json/5295",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 330,
+        "y": 720,
+        "wires": [
+            [
+                "b60cdb30.a5bba8"
+            ]
+        ]
+    },
+    {
+        "id": "b60cdb30.a5bba8",
+        "type": "json",
+        "z": "6b78a80e.fade78",
+        "g": "5d9af1d3.46f09",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 480,
+        "y": 720,
+        "wires": [
+            [
+                "40781834.279208",
+                "d508c43e.610b08",
+                "b27ff8f0.7eb718"
+            ]
+        ]
+    },
+    {
+        "id": "d508c43e.610b08",
+        "type": "ui_gauge",
+        "z": "6b78a80e.fade78",
+        "g": "5d9af1d3.46f09",
+        "name": "",
+        "group": "dbd86547.d2f338",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "PM2.5",
+        "label": "μg/m3",
+        "format": "{{msg.payload[0].value[0].pm25}}",
+        "min": 0,
+        "max": "300",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 670,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "8cc4f5df.f4f1c8",
+        "type": "ui_chart",
+        "z": "6b78a80e.fade78",
+        "g": "5d9af1d3.46f09",
+        "name": "",
+        "group": "dbd86547.d2f338",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 870,
+        "y": 820,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "40781834.279208",
+        "type": "function",
+        "z": "6b78a80e.fade78",
+        "g": "5d9af1d3.46f09",
+        "name": "",
+        "func": "msg.payload = msg.payload[0].value[0].pm25;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 680,
+        "y": 820,
+        "wires": [
+            [
+                "8cc4f5df.f4f1c8"
+            ]
+        ]
+    },
+    {
+        "id": "f032fe79.2cb8b",
+        "type": "inject",
+        "z": "6b78a80e.fade78",
+        "g": "cf70a5a6.00fe58",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "3600",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 380,
+        "wires": [
+            [
+                "ffc6a653.1a1b78"
+            ]
+        ]
+    },
+    {
+        "id": "7c81459a.1b764c",
+        "type": "debug",
+        "z": "6b78a80e.fade78",
+        "g": "cf70a5a6.00fe58",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 610,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "c43cb291.5a61b",
+        "type": "ui_text",
+        "z": "6b78a80e.fade78",
+        "g": "cf70a5a6.00fe58",
+        "group": "23a8516c.bea25e",
+        "order": 4,
+        "width": "6",
+        "height": "1",
+        "name": "",
+        "label": "สภาพอากาศ",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 830,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "b686901c.bff06",
+        "type": "ui_text",
+        "z": "6b78a80e.fade78",
+        "g": "cf70a5a6.00fe58",
+        "group": "23a8516c.bea25e",
+        "order": 5,
+        "width": "6",
+        "height": "1",
+        "name": "",
+        "label": "คำอธิบาย",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 820,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "133e02c3.f4f46d",
+        "type": "ui_text",
+        "z": "6b78a80e.fade78",
+        "g": "cf70a5a6.00fe58",
+        "group": "23a8516c.bea25e",
+        "order": 6,
+        "width": "6",
+        "height": "3",
+        "name": "",
+        "label": "รายละเอียด",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 830,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "52ace3ee.d59aec",
+        "type": "function",
+        "z": "6b78a80e.fade78",
+        "g": "cf70a5a6.00fe58",
+        "name": "weather",
+        "func": "msg.payload = msg.payload.weather\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 600,
+        "y": 340,
+        "wires": [
+            [
+                "c43cb291.5a61b",
+                "7a0a6b11.4696c4"
+            ]
+        ]
+    },
+    {
+        "id": "f1e99b61.04cb88",
+        "type": "function",
+        "z": "6b78a80e.fade78",
+        "g": "cf70a5a6.00fe58",
+        "name": "detail",
+        "func": "msg.payload = msg.payload.detail\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 590,
+        "y": 380,
+        "wires": [
+            [
+                "b686901c.bff06",
+                "7a0a6b11.4696c4"
+            ]
+        ]
+    },
+    {
+        "id": "27a3a70a.a57888",
+        "type": "function",
+        "z": "6b78a80e.fade78",
+        "g": "cf70a5a6.00fe58",
+        "name": "description",
+        "func": "msg.payload = msg.payload.description\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 610,
+        "y": 420,
+        "wires": [
+            [
+                "133e02c3.f4f46d",
+                "7a0a6b11.4696c4"
+            ]
+        ]
+    },
+    {
+        "id": "ffc6a653.1a1b78",
+        "type": "openweathermap",
+        "z": "6b78a80e.fade78",
+        "g": "cf70a5a6.00fe58",
+        "name": "Kantharawichai City",
+        "wtype": "current",
+        "lon": "",
+        "lat": "",
+        "city": "Kantharawichai",
+        "country": "Thailand",
+        "language": "en",
+        "x": 340,
+        "y": 380,
+        "wires": [
+            [
+                "7c81459a.1b764c",
+                "52ace3ee.d59aec",
+                "f1e99b61.04cb88",
+                "27a3a70a.a57888"
+            ]
+        ]
+    },
+    {
+        "id": "636c9376.b08fac",
+        "type": "ui_gauge",
+        "z": "6b78a80e.fade78",
+        "g": "cf70a5a6.00fe58",
+        "name": "",
+        "group": "f8b552e0.c010b",
+        "order": 1,
+        "width": "6",
+        "height": "6",
+        "gtype": "gage",
+        "title": "อุณหภูมิ",
+        "label": "C ํ",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 600,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "999c7c0a.d2724",
+        "type": "ui_gauge",
+        "z": "6b78a80e.fade78",
+        "g": "cf70a5a6.00fe58",
+        "name": "",
+        "group": "6588e279.e6528c",
+        "order": 2,
+        "width": "6",
+        "height": "6",
+        "gtype": "gage",
+        "title": "ความชื้น",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "300",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 600,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "c0c16c74.a33b3",
+        "type": "mqtt in",
+        "z": "6b78a80e.fade78",
+        "g": "cf70a5a6.00fe58",
+        "name": "sensor/tempc",
+        "topic": "tempc",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "ddd760b3.6997c",
+        "x": 350,
+        "y": 160,
+        "wires": [
+            [
+                "7c81459a.1b764c",
+                "636c9376.b08fac",
+                "ba3c224a.af7e9"
+            ]
+        ]
+    },
+    {
+        "id": "60299073.892f9",
+        "type": "function",
+        "z": "6b78a80e.fade78",
+        "g": "cf70a5a6.00fe58",
+        "name": "",
+        "func": "var newMsg = { payload: msg.payload.split(\",\") };\nnewMsg.topic=\"insert into dht values(NULL,'\"+newMsg.payload[0]+\"','\"+newMsg.payload[1]+\"',CURRENT_TIMESTAMP)\";\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 740,
+        "y": 220,
+        "wires": [
+            [
+                "aa4e9615.a22658"
+            ]
+        ]
+    },
+    {
+        "id": "aa4e9615.a22658",
+        "type": "mysql",
+        "z": "6b78a80e.fade78",
+        "g": "cf70a5a6.00fe58",
+        "mydb": "8e1e3617.4abbe8",
+        "name": "",
+        "x": 870,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b27ff8f0.7eb718",
+        "type": "debug",
+        "z": "6b78a80e.fade78",
+        "g": "5d9af1d3.46f09",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "2d77486b.5ede28",
+        "type": "mqtt in",
+        "z": "6b78a80e.fade78",
+        "name": "humid",
+        "topic": "humid",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "ddd760b3.6997c",
+        "x": 330,
+        "y": 220,
+        "wires": [
+            [
+                "999c7c0a.d2724",
+                "ba3c224a.af7e9",
+                "7c81459a.1b764c"
+            ]
+        ]
+    },
+    {
+        "id": "ba3c224a.af7e9",
+        "type": "join",
+        "z": "6b78a80e.fade78",
+        "g": "cf70a5a6.00fe58",
+        "name": "",
+        "mode": "custom",
+        "build": "string",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": ",",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "2",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 590,
+        "y": 220,
+        "wires": [
+            [
+                "60299073.892f9"
+            ]
+        ]
+    },
+    {
+        "id": "eb4278f8.277028",
+        "type": "json",
+        "z": "6b78a80e.fade78",
+        "g": "40026d2d.906c64",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 270,
+        "y": 940,
+        "wires": [
+            [
+                "3168b4c0.fc252c",
+                "3f6da7ad.815088",
+                "5fc14129.6667f",
+                "184bc8f4.29b387"
+            ]
+        ]
+    },
+    {
+        "id": "3168b4c0.fc252c",
+        "type": "debug",
+        "z": "6b78a80e.fade78",
+        "g": "40026d2d.906c64",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 450,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "8625597.3ededa8",
+        "type": "mqtt in",
+        "z": "6b78a80e.fade78",
+        "g": "40026d2d.906c64",
+        "name": "",
+        "topic": "/kdi/inTopic",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "ddd760b3.6997c",
+        "x": 120,
+        "y": 940,
+        "wires": [
+            [
+                "eb4278f8.277028"
+            ]
+        ]
+    },
+    {
+        "id": "3f6da7ad.815088",
+        "type": "function",
+        "z": "6b78a80e.fade78",
+        "g": "40026d2d.906c64",
+        "name": "set location",
+        "func": "msg.payload =  {\n    action:\"click\",\n    name:\"ตำแหน่งปัจจุบัน1\",\n    lat:msg.payload.lat,\n    lon:msg.payload.lon,\n    icon:\"fa-bus\",\n    iconColor:\"blue\",\n    color:\"#ff00ff\"};\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 450,
+        "y": 940,
+        "wires": [
+            [
+                "1dc21bcf.f46434"
+            ]
+        ]
+    },
+    {
+        "id": "5fc14129.6667f",
+        "type": "function",
+        "z": "6b78a80e.fade78",
+        "g": "40026d2d.906c64",
+        "name": "",
+        "func": "msg.topic=\"insert into gps values(NULL,'\"+msg.payload.lat+\"','\"+msg.payload.lon+\"',CURRENT_TIMESTAMP)\";\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 440,
+        "y": 1120,
+        "wires": [
+            [
+                "622fc405.a3f5bc"
+            ]
+        ]
+    },
+    {
+        "id": "622fc405.a3f5bc",
+        "type": "mysql",
+        "z": "6b78a80e.fade78",
+        "g": "40026d2d.906c64",
+        "mydb": "8e1e3617.4abbe8",
+        "name": "",
+        "x": 590,
+        "y": 1120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f027d59b.a274d8",
+        "type": "function",
+        "z": "6b78a80e.fade78",
+        "g": "cf70a5a6.00fe58",
+        "name": "",
+        "func": "var newMsg = { payload: msg.payload.split(\",\") };\nnewMsg.topic=\"insert into Weather values(NULL,'\"+newMsg.payload[0]+\"','\"+newMsg.payload[1]+\"','\"+newMsg.payload[2]+\"',CURRENT_TIMESTAMP)\";\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 720,
+        "y": 520,
+        "wires": [
+            [
+                "24d9721.895168e"
+            ]
+        ]
+    },
+    {
+        "id": "24d9721.895168e",
+        "type": "mysql",
+        "z": "6b78a80e.fade78",
+        "g": "cf70a5a6.00fe58",
+        "mydb": "8e1e3617.4abbe8",
+        "name": "",
+        "x": 870,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7a0a6b11.4696c4",
+        "type": "join",
+        "z": "6b78a80e.fade78",
+        "g": "cf70a5a6.00fe58",
+        "name": "",
+        "mode": "custom",
+        "build": "string",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": ",",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "3",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 570,
+        "y": 520,
+        "wires": [
+            [
+                "f027d59b.a274d8"
+            ]
+        ]
+    },
+    {
+        "id": "e6dd913d.4dc4d",
+        "type": "inject",
+        "z": "6b78a80e.fade78",
+        "g": "cf70a5a6.00fe58",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "SELECT * FROM dht ORDER BY id DESC ;",
+        "payload": "",
+        "payloadType": "date",
+        "x": 590,
+        "y": 280,
+        "wires": [
+            [
+                "94c65810.8f1278"
+            ]
+        ]
+    },
+    {
+        "id": "94c65810.8f1278",
+        "type": "mysql",
+        "z": "6b78a80e.fade78",
+        "g": "cf70a5a6.00fe58",
+        "mydb": "8e1e3617.4abbe8",
+        "name": "",
+        "x": 730,
+        "y": 280,
+        "wires": [
+            [
+                "e5f8872f.e0f5c8"
+            ]
+        ]
+    },
+    {
+        "id": "e5f8872f.e0f5c8",
+        "type": "ui_template",
+        "z": "6b78a80e.fade78",
+        "g": "cf70a5a6.00fe58",
+        "group": "a9b81c75.41a66",
+        "name": "",
+        "order": 3,
+        "width": "6",
+        "height": "13",
+        "format": "<table style=\"width:100%;font-size: 12px;\">\n<tr>\n<th>ID</th>\n<th>Temperature</th>\n<th>Humidity</th>\n<th>Timestamp</th>\n</tr>\n<tr ng-repeat=\"x in msg.payload | limitTo:30\">\n<td>{{msg.payload[$index].id}}</td>\n<td>{{msg.payload[$index].Temperature}}</td>\n<td>{{msg.payload[$index].Humidity}}</td>\n<td>{{msg.payload[$index].timerecord}}</td>\n</tr>\n</table>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "x": 860,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "50fcca44.335ee4",
+        "type": "mysql",
+        "z": "6b78a80e.fade78",
+        "g": "40026d2d.906c64",
+        "mydb": "8e1e3617.4abbe8",
+        "name": "",
+        "x": 630,
+        "y": 1060,
+        "wires": [
+            [
+                "3a05d360.dc67bc"
+            ]
+        ]
+    },
+    {
+        "id": "daf26ae0.1207d8",
+        "type": "inject",
+        "z": "6b78a80e.fade78",
+        "g": "40026d2d.906c64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "SELECT * FROM gps ORDER BY id DESC ;",
+        "payload": "",
+        "payloadType": "date",
+        "x": 470,
+        "y": 1060,
+        "wires": [
+            [
+                "50fcca44.335ee4"
+            ]
+        ]
+    },
+    {
+        "id": "3a05d360.dc67bc",
+        "type": "ui_template",
+        "z": "6b78a80e.fade78",
+        "g": "40026d2d.906c64",
+        "group": "b9fda7d2.278628",
+        "name": "",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "format": "<table style=\"width:100%;font-size: 12px;\">\n<tr>\n<th>ID</th>\n<th>Lat</th>\n<th>Lon</th>\n<th>Timestamp</th>\n</tr>\n<tr ng-repeat=\"x in msg.payload | limitTo:27\">\n<td>{{msg.payload[$index].id}}</td>\n<td>{{msg.payload[$index].lat}}</td>\n<td>{{msg.payload[$index].lon}}</td>\n<td>{{msg.payload[$index].timerecord}}</td>\n</tr>\n</table>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "x": 780,
+        "y": 1060,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "944ccae9.e1b978",
+        "type": "debug",
+        "z": "6b78a80e.fade78",
+        "g": "40026d2d.906c64",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 470,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "a91b400e.fb01c",
+        "type": "function",
+        "z": "6b78a80e.fade78",
+        "g": "40026d2d.906c64",
+        "name": "",
+        "func": "var lat = msg.payload.lat + Math.random() * 0.2;\nvar lon = msg.payload.lon + Math.random() * 0.2;\nmsg.payload={\n    lat:msg.payload.lat, \n    lon:msg.payload.lon, \n    name:\"Mike\", \n    icon:\"male\", \n    color:\"#ff3300\"};\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 460,
+        "y": 1260,
+        "wires": [
+            [
+                "f6fe1aef.b0ae98"
+            ]
+        ]
+    },
+    {
+        "id": "17812856.95f738",
+        "type": "mqtt in",
+        "z": "6b78a80e.fade78",
+        "g": "40026d2d.906c64",
+        "name": "",
+        "topic": "/kdi/inTopic/test",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "ddd760b3.6997c",
+        "x": 140,
+        "y": 1200,
+        "wires": [
+            [
+                "dd809ca.0922a6"
+            ]
+        ]
+    },
+    {
+        "id": "96aca450.d679d8",
+        "type": "function",
+        "z": "6b78a80e.fade78",
+        "g": "40026d2d.906c64",
+        "name": "set location",
+        "func": "msg.payload =  {\n    action:\"click\",\n    name:\"ตำแหน่งปัจจุบัน\",\n    lat:msg.payload.lat,\n    lon:msg.payload.lon,\n   icon:\"fa-bus\",\n    iconColor:\"red\",\n    color:\"#ff00ff\"};\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 470,
+        "y": 1200,
+        "wires": [
+            [
+                "1dc21bcf.f46434"
+            ]
+        ]
+    },
+    {
+        "id": "dd809ca.0922a6",
+        "type": "json",
+        "z": "6b78a80e.fade78",
+        "g": "40026d2d.906c64",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 290,
+        "y": 1200,
+        "wires": [
+            [
+                "944ccae9.e1b978",
+                "96aca450.d679d8",
+                "70206221.75b8ac",
+                "a91b400e.fb01c"
+            ]
+        ]
+    },
+    {
+        "id": "f6fe1aef.b0ae98",
+        "type": "worldmap-tracks",
+        "z": "6b78a80e.fade78",
+        "g": "40026d2d.906c64",
+        "name": "",
+        "depth": "15",
+        "layer": "combined",
+        "smooth": false,
+        "x": 650,
+        "y": 1260,
+        "wires": [
+            [
+                "1dc21bcf.f46434"
+            ]
+        ]
+    },
+    {
+        "id": "1dc21bcf.f46434",
+        "type": "ui_worldmap",
+        "z": "6b78a80e.fade78",
+        "g": "40026d2d.906c64",
+        "group": "9f8510b.9fe89f",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "lat": "13.751",
+        "lon": "100.4873",
+        "zoom": "6",
+        "layer": "OSM",
+        "cluster": "0",
+        "maxage": "",
+        "usermenu": "show",
+        "layers": "show",
+        "panit": "false",
+        "panlock": "false",
+        "zoomlock": "false",
+        "hiderightclick": "true",
+        "coords": "deg",
+        "showgrid": "true",
+        "allowFileDrop": "false",
+        "path": "/worldmap",
+        "x": 860,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "a93e03d5.710e9",
+        "type": "mysql",
+        "z": "6b78a80e.fade78",
+        "g": "cf70a5a6.00fe58",
+        "mydb": "8e1e3617.4abbe8",
+        "name": "",
+        "x": 710,
+        "y": 580,
+        "wires": [
+            [
+                "23f9f4e1.d34bbc"
+            ]
+        ]
+    },
+    {
+        "id": "fabc7c16.a9cbb",
+        "type": "inject",
+        "z": "6b78a80e.fade78",
+        "g": "cf70a5a6.00fe58",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "SELECT * FROM Weather ORDER BY id DESC ;",
+        "payload": "",
+        "payloadType": "date",
+        "x": 570,
+        "y": 580,
+        "wires": [
+            [
+                "a93e03d5.710e9"
+            ]
+        ]
+    },
+    {
+        "id": "23f9f4e1.d34bbc",
+        "type": "ui_template",
+        "z": "6b78a80e.fade78",
+        "g": "cf70a5a6.00fe58",
+        "group": "7a44a0d2.b20e",
+        "name": "",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "format": "<table style=\"width:100%;font-size: 12px;\">\n<tr>\n<th>ID</th>\n<th>Weather</th>\n<th>Detail</th>\n<th>Description</th>\n<th>Time</th>\n</tr>\n<tr ng-repeat=\"x in msg.payload | limitTo:5\">\n<td>{{msg.payload[$index].id}}</td>\n<td>{{msg.payload[$index].weather}}</td>\n<td>{{msg.payload[$index].detail}}</td>\n<td>{{msg.payload[$index].description}}</td>\n<td>{{msg.payload[$index].time}}</td>\n</tr>\n</table>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "x": 840,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9973623f.c13fa",
+        "type": "mysql",
+        "z": "6b78a80e.fade78",
+        "g": "40026d2d.906c64",
+        "mydb": "8e1e3617.4abbe8",
+        "name": "",
+        "x": 610,
+        "y": 1360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "70206221.75b8ac",
+        "type": "function",
+        "z": "6b78a80e.fade78",
+        "g": "40026d2d.906c64",
+        "name": "",
+        "func": "msg.topic=\"insert into gps values(NULL,'\"+msg.payload.lat+\"','\"+msg.payload.lon+\"',CURRENT_TIMESTAMP)\";\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 460,
+        "y": 1360,
+        "wires": [
+            [
+                "9973623f.c13fa"
+            ]
+        ]
+    },
+    {
+        "id": "184bc8f4.29b387",
+        "type": "function",
+        "z": "6b78a80e.fade78",
+        "name": "",
+        "func": "var lat = msg.payload.lat + Math.random() * 0.2;\nvar lon = msg.payload.lon + Math.random() * 0.2;\nmsg.payload={\n    lat:msg.payload.lat, \n    lon:msg.payload.lon, \n    name:\"Mike\", \n    icon:\"male\", \n    color:\"#ff3300\"};\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 660,
+        "y": 960,
+        "wires": [
+            [
+                "b2b6325.2ad68d"
+            ]
+        ]
+    },
+    {
+        "id": "b2b6325.2ad68d",
+        "type": "worldmap-tracks",
+        "z": "6b78a80e.fade78",
+        "name": "",
+        "depth": "15",
+        "layer": "combined",
+        "smooth": false,
+        "x": 850,
+        "y": 960,
+        "wires": [
+            [
+                "1dc21bcf.f46434"
+            ]
+        ]
+    },
+    {
+        "id": "dbd86547.d2f338",
+        "type": "ui_group",
+        "name": "ค่าฝุ่น PM2.5มหาวิทยาลัยมหาสารคาม",
+        "tab": "5db782cc.c8d504",
+        "order": 8,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "23a8516c.bea25e",
+        "type": "ui_group",
+        "name": "สภาพอากาศอำเภอกันทรวิชัย",
+        "tab": "5db782cc.c8d504",
+        "order": 7,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "f8b552e0.c010b",
+        "type": "ui_group",
+        "name": "อุณหภูมิ",
+        "tab": "5db782cc.c8d504",
+        "order": 5,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "6588e279.e6528c",
+        "type": "ui_group",
+        "name": "ความชื้น",
+        "tab": "5db782cc.c8d504",
+        "order": 10,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "ddd760b3.6997c",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "35.186.145.223",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": false,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "8e1e3617.4abbe8",
+        "type": "MySQLdatabase",
+        "name": "",
+        "host": "127.0.0.1",
+        "port": "3306",
+        "db": "Project",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "a9b81c75.41a66",
+        "type": "ui_group",
+        "name": "ข้อมูลอุณหภูมิและความชื้น",
+        "tab": "5db782cc.c8d504",
+        "order": 6,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "b9fda7d2.278628",
+        "type": "ui_group",
+        "name": "ข้อมูลพิกัด GPS ",
+        "tab": "5db782cc.c8d504",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "9f8510b.9fe89f",
+        "type": "ui_group",
+        "name": "Map",
+        "tab": "5db782cc.c8d504",
+        "order": 1,
+        "disp": true,
+        "width": "12",
+        "collapse": false
+    },
+    {
+        "id": "7a44a0d2.b20e",
+        "type": "ui_group",
+        "name": "ข้อมูลสภาพอากาศ",
+        "tab": "5db782cc.c8d504",
+        "order": 9,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "5db782cc.c8d504",
+        "type": "ui_tab",
+        "name": "ระบบติดตามรถรางสาธารณะมหาวิทยาลัยมหาสารคาม",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
